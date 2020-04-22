@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<script
+	   	
+	   			 type="text/javascript">
+				function loadLocation ()
+					 {
+		 		navigator.geolocation.getCurrentPosition(viewMap,ViewError,{timeout:1000});
+		   			}
+
+
+				function viewMap (position) {
+	
+				var lon = position.coords.longitude;	//guardamos la longitud
+				var lat = position.coords.latitude;		//guardamos la latitud
+
+				document.getElementById("long").innerHTML =  " <center> Longitud: "+lon;
+				document.getElementById("latitud").innerHTML = "<center>  Latitud: "+lat;
+
+			  								}
+
+				function ViewError (error) {
+				alert(error.code);
+											}	
+	</script>
+
+	<meta charset="utf-8">
+	<title>geo localizacion</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+    <link rel="manifest" href="manifest.json">
+	
+</head>
+
+<div id="principal">
+
+	<H1 align="center"> Geolocalizacion </H1>
+	<label id="long"></label> <br/>
+	<label id="latitud"></label> <br/>
+
+</div> <link rel="manifest" href="manifest.json">
+
+<body onload="loadLocation();">
+
+</body>
+</html>
